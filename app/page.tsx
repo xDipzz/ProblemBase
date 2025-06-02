@@ -4,7 +4,7 @@ import Link from "next/link"
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-white text-black">
-      
+      {/* Simple Navigation */}
       <nav className="border-b-2 border-black p-4">
         <div className="max-w-6xl mx-auto flex justify-between items-center">
           <h1 className="text-xl font-bold">PROBLEMBASE</h1>
@@ -19,7 +19,7 @@ export default function HomePage() {
         </div>
       </nav>
 
-   
+      {/* Hero Section */}
       <main className="max-w-6xl mx-auto p-8 text-center">
         <h1 className="text-4xl font-bold mb-4">REAL PROBLEMS</h1>
         <div className="w-full h-px bg-black mb-4"></div>
