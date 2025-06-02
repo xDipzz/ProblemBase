@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ProblemBase
 
-## Getting Started
+A platform to connect real problems with real builders to power the next wave of innovation.
 
-First, run the development server:
+## 🚀 Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Problem Discovery**: Explore and discover real-world problems that need solutions
+- **Builder Community**: Connect with talented developers and entrepreneurs
+- **Project Showcase**: Display completed solutions and ongoing projects
+- **User Profiles**: Manage your builder profile and track contributions
+- **Modern UI**: Built with shadcn/ui and Tailwind CSS for a beautiful experience
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 15 with App Router
+- **Styling**: Tailwind CSS + shadcn/ui components
+- **Language**: TypeScript
+- **Package Manager**: pnpm
+- **Database**: Prisma (ready for setup)
+
+## 🏃‍♂️ Getting Started
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/xDipzz/ProblemBase.git
+   cd ProblemBase
+   ```
+
+2. **Install dependencies**
+   ```bash
+   pnpm install
+   ```
+
+3. **Run the development server**
+   ```bash
+   pnpm dev
+   ```
+
+4. **Open your browser**
+   Navigate to [http://localhost:3000](http://localhost:3000)
+
+## 📁 Project Structure
+
+```
+├── app/                 # Next.js app directory
+│   ├── dashboard/       # User dashboard
+│   ├── explore/         # Problem discovery
+│   ├── login/           # Authentication
+│   ├── problem/         # Individual problem pages
+│   ├── profile/         # User profiles
+│   ├── register/        # User registration
+│   ├── showcase/        # Project showcase
+│   └── submit/          # Problem submission
+├── components/          # Reusable UI components
+├── hooks/              # Custom React hooks
+├── lib/                # Utility functions
+└── styles/             # Global styles
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🎨 Available Scripts
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `pnpm dev` - Start development server
+- `pnpm build` - Build for production
+- `pnpm start` - Start production server
+- `pnpm lint` - Run ESLint
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🤝 Contributing
 
-## Learn More
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Commit with descriptive messages
+5. Push and create a Pull Request
 
-To learn more about Next.js, take a look at the following resources:
+## 📄 License
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This project is open source and available under the [MIT License](LICENSE).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Built with ❤️ by the ProblemBase team
