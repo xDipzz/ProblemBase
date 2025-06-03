@@ -9,15 +9,15 @@ import { MapPin, Calendar, Github, Twitter, Globe, Star, ExternalLink } from "lu
 export default function ProfilePage({ params }: { params: { username: string } }) {
   // Mock user data - in real app, this would be fetched based on params.username
   const user = {
-    name: "Sarah Chen",
-    username: "sarahc",
+    name: "George Sharma",
+    username: "George c",
     avatar: "/placeholder.svg?height=120&width=120",
     bio: "Product Manager at TechCorp. Passionate about building tools that solve real problems for remote teams.",
     location: "San Francisco, CA",
     joinedAt: "January 2023",
-    website: "https://sarahchen.dev",
-    github: "sarahc",
-    twitter: "sarahc_dev",
+    website: "https://George chen.dev",
+    github: "George c",
+    twitter: "George c_dev",
     stats: {
       problemsSubmitted: 12,
       projectsClaimed: 5,
@@ -89,7 +89,7 @@ export default function ProfilePage({ params }: { params: { username: string } }
       id: 1,
       title: "TaskFlow - Smart Project Management",
       description: "A simplified project management tool built specifically for remote teams.",
-      githubUrl: "https://github.com/sarahc/taskflow",
+      githubUrl: "https://github.com/George c/taskflow",
       liveUrl: "https://taskflow-demo.vercel.app",
       stars: 127,
       techStack: ["React", "Node.js", "PostgreSQL"],
@@ -99,7 +99,7 @@ export default function ProfilePage({ params }: { params: { username: string } }
       id: 2,
       title: "ExpenseTracker Pro",
       description: "Smart expense tracking with automatic categorization.",
-      githubUrl: "https://github.com/sarahc/expense-tracker",
+      githubUrl: "https://github.com/George c/expense-tracker",
       liveUrl: "https://expensetracker-pro.app",
       stars: 89,
       techStack: ["React Native", "Firebase", "Stripe"],

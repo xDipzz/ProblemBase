@@ -57,8 +57,8 @@ A project management solution that:
     urgency: "High",
     bounty: 500,
     submitter: {
-      name: "Sarah Chen",
-      username: "sarahc",
+      name: "George Sharma",
+      username: "George c",
       avatar: "/placeholder.svg?height=40&width=40",
       bio: "Product Manager at TechCorp",
     },
@@ -96,8 +96,8 @@ A project management solution that:
         {
           id: 3,
           author: {
-            name: "Sarah Chen",
-            username: "sarahc",
+            name: "George Sharma",
+            username: "George c",
             avatar: "/placeholder.svg?height=32&width=32",
           },
           content: "Good point! Linear integration would be valuable. We're currently using Jira but it's too heavy.",

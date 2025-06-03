@@ -24,7 +24,7 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
     { name: "DASHBOARD", href: "/dashboard", icon: Home },
     { name: "SUBMIT", href: "/submit", icon: Plus },
     { name: "EXPLORE", href: "/explore", icon: Search },
-    { name: "PROFILE", href: "/profile/sarahc", icon: User },
+    { name: "PROFILE", href: "/profile/George c", icon: User },
     { name: "SHOWCASE", href: "/showcase", icon: Rocket },
     { name: "SETTINGS", href: "/settings", icon: Settings },
   ]
@@ -33,8 +33,8 @@ export function DashboardLayout({ children }: DashboardLayoutProps) {
 
   // Mock user data
   const user = {
-    name: "SARAH CHEN",
-    email: "sarah@example.com",
+    name: "George Sharma",
+    email: "George @example.com",
     role: "user", // or "admin"
   }
 

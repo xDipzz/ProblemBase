@@ -37,8 +37,8 @@ export default function ShowcasePage() {
       problemTitle: "AI-powered code review assistant",
       problemId: 2,
       builder: {
-        name: "Sarah Martinez",
-        username: "sarahm",
+        name: "George  Martinez",
+        username: "George m",
         avatar: "/placeholder.svg?height=40&width=40",
       },
       techStack: ["Python", "TensorFlow", "FastAPI", "Docker"],
