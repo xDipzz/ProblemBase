@@ -8,13 +8,22 @@ import { ArrowRight, Plus, Search, Users } from "lucide-react";
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background to-muted text-foreground font-sans antialiased relative overflow-x-hidden">
-      <div className="fixed top-0 left-0 w-full h-full pointer-events-none z-0">
-        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-primary/10 to-accent/10 blur-3xl opacity-30 animate-pulse"></div>
+    <div className="min-h-screen bg-white text-foreground font-sans antialiased relative overflow-x-hidden">
+      {/* Moving Background Effect */}
+      <div className="fixed top-0 left-0 w-full h-full z-0 pointer-events-none">
+        <div className="absolute w-[200%] h-[200%] bg-gradient-to-tr from-white via-blue-100 to-white animate-[bgMove_30s_linear_infinite] opacity-30 blur-3xl"></div>
       </div>
 
+      <style jsx global>{`
+        @keyframes bgMove {
+          0% { transform: translateX(-50%) translateY(-50%); }
+          50% { transform: translateX(-40%) translateY(-45%); }
+          100% { transform: translateX(-50%) translateY(-50%); }
+        }
+      `}</style>
+
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/70 backdrop-blur border-b border-border transition-all shadow-sm">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/60 backdrop-blur border-b border-border transition-all shadow-sm">
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/" className="text-lg font-black tracking-tight hover:opacity-90 transition-all">
             PROBLEMBASE
@@ -27,7 +36,7 @@ export default function LandingPage() {
               <Link
                 key={label}
                 href={href}
-                className="text-sm font-medium px-3 py-2 rounded-md hover:bg-muted hover:text-primary transition-all"
+                className="text-sm font-medium px-3 py-2 rounded-md hover:bg-blue-100 hover:text-primary transition-all"
               >
                 {label}
               </Link>
@@ -175,7 +184,7 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-border py-12 bg-background/70 backdrop-blur relative z-10">
+      <footer className="border-t border-border py-12 bg-white/70 backdrop-blur relative z-10">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
             <div className="text-lg font-black tracking-tight">PROBLEMBASE</div>
