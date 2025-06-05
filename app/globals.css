@@ -75,6 +75,24 @@ body {
   }
 }
 
+/* Smooth theme transition animations */
+html {
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html * {
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Disable transitions during initial load */
+html.no-transition * {
+  transition: none !important;
+}
+
 /* Custom scrollbar for both themes */
 ::-webkit-scrollbar {
   width: 12px;
@@ -83,11 +101,13 @@ body {
 ::-webkit-scrollbar-track {
   background: hsl(var(--background));
   border: 2px solid hsl(var(--border));
+  transition: background-color 0.3s ease;
 }
 
 ::-webkit-scrollbar-thumb {
   background: hsl(var(--foreground));
   border: 2px solid hsl(var(--background));
+  transition: background-color 0.3s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -131,7 +151,7 @@ body {
   transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow,
     transform, filter, backdrop-filter;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 200ms;
+  transition-duration: 300ms;
 }
 
 /* Typography improvements */
