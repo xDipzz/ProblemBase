@@ -9,6 +9,7 @@ type ThemeProviderProps = {
   children: React.ReactNode
   defaultTheme?: Theme
   storageKey?: string
+  enableKeyboardShortcuts?: boolean
 }
 
 type ThemeProviderState = {
@@ -31,6 +32,7 @@ export function ThemeProvider({
   children,
   defaultTheme = "auto",
   storageKey = "problembase-theme",
+  enableKeyboardShortcuts = true,
   ...props
 }: ThemeProviderProps) {
   const [theme, setTheme] = useState<Theme>(defaultTheme)
@@ -48,6 +50,22 @@ export function ThemeProvider({
     mediaQuery.addEventListener("change", handleChange)
     return () => mediaQuery.removeEventListener("change", handleChange)
   }, [])
+
+  // Keyboard shortcuts
+  useEffect(() => {
+    if (!enableKeyboardShortcuts) return
+
+    const handleKeydown = (event: KeyboardEvent) => {
+      // Ctrl/Cmd + Shift + T to toggle theme
+      if ((event.ctrlKey || event.metaKey) && event.shiftKey && event.key === 'T') {
+        event.preventDefault()
+        toggleTheme()
+      }
+    }
+
+    document.addEventListener('keydown', handleKeydown)
+    return () => document.removeEventListener('keydown', handleKeydown)
+  }, [enableKeyboardShortcuts, theme])
 
   useEffect(() => {
     const storedTheme = localStorage.getItem(storageKey) as Theme
