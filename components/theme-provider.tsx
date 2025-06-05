@@ -18,7 +18,7 @@ type ThemeProviderState = {
 }
 
 const initialState: ThemeProviderState = {
-  theme: "light",
+  theme: "dark",
   setTheme: () => null,
   toggleTheme: () => null,
 }
@@ -27,7 +27,7 @@ const ThemeProviderContext = createContext<ThemeProviderState>(initialState)
 
 export function ThemeProvider({
   children,
-  defaultTheme = "light",
+  defaultTheme = "dark",
   storageKey = "problembase-theme",
   ...props
 }: ThemeProviderProps) {
@@ -35,10 +35,13 @@ export function ThemeProvider({
 
   useEffect(() => {
     const storedTheme = localStorage.getItem(storageKey) as Theme
-    if (storedTheme) {
+    if (storedTheme && (storedTheme === "light" || storedTheme === "dark")) {
       setTheme(storedTheme)
+    } else {
+      // If no stored theme, use the default theme
+      setTheme(defaultTheme)
     }
-  }, [storageKey])
+  }, [storageKey, defaultTheme])
 
   useEffect(() => {
     const root = window.document.documentElement

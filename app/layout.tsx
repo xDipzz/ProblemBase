@@ -1,6 +1,7 @@
 import type React from "react"
 import type { Metadata } from "next"
 import "./globals.css"
+import { ThemeProvider } from "@/components/theme-provider"
 
 export const metadata: Metadata = {
   title: "ProblemBase - Connect Problems with Builders",
@@ -14,8 +15,12 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="en" className="dark">
+      <body>
+        <ThemeProvider defaultTheme="dark" storageKey="problembase-theme">
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   )
 }
