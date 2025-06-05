@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
+import { ThemeErrorBoundary } from "@/components/theme-error-boundary"
 
 export const metadata: Metadata = {
   title: "ProblemBase - Connect Problems with Builders",
@@ -17,9 +18,11 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body>
-        <ThemeProvider defaultTheme="auto" storageKey="problembase-theme">
-          {children}
-        </ThemeProvider>
+        <ThemeErrorBoundary>
+          <ThemeProvider defaultTheme="auto" storageKey="problembase-theme">
+            {children}
+          </ThemeProvider>
+        </ThemeErrorBoundary>
       </body>
     </html>
   )
