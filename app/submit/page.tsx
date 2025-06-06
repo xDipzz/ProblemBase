@@ -96,7 +96,7 @@ export default function SubmitProblemPage() {
         {/* Header */}
         <div>
           <h1 className="text-3xl font-black tracking-tight">SUBMIT A PROBLEM</h1>
-          <p className="text-base font-medium mt-2">Share a real-world problem that needs an innovative solution</p>
+          <p className="text-base font-medium mt-2">Share a real-world problem that needs an innovative solution from our community</p>
         </div>
 
         <div className="border-2 border-black p-8">
