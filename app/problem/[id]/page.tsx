@@ -24,28 +24,29 @@ export default function ProblemDetailPage({ params }: { params: { id: string } }
   const [newComment, setNewComment] = useState("")
   const [isClaimDialogOpen, setIsClaimDialogOpen] = useState(false)
 
-  // Mock data - in real app, this would be fetched based on params.id
+  // Mock data - in real app this would come from your database
   const problem = {
-    id: 1,
+    id: params.id,
     title: "Better project management for remote teams",
-    description: `## The Problem
+    description: `Current tools are too complex and don't integrate well with existing workflows. Need something simple but powerful.
 
-Current project management tools are either too complex for small teams or too simple for growing organizations. Most tools don't integrate well with existing workflows and require extensive setup.
+## Key Pain Points
 
-## What We Need
+- Too many tools to manage (Slack, Jira, GitHub, Figma, etc.)
+- Context switching kills productivity
+- Hard to track progress across different platforms
+- Communication gets scattered
+- New team members take weeks to onboard
 
-A project management solution that:
-- **Simple Setup**: Get started in under 5 minutes
-- **Smart Integration**: Works with existing tools (Slack, GitHub, etc.)
-- **Remote-First**: Built specifically for distributed teams
-- **Flexible Workflows**: Adapts to different team structures
+## Proposed Solution
 
-## Current Pain Points
+A unified dashboard that integrates with existing tools but provides a clean, simple interface for:
 
-1. **Tool Fragmentation**: Using 5+ different tools for project management
-2. **Context Switching**: Constantly jumping between platforms
-3. **Poor Mobile Experience**: Most tools are desktop-only
-4. **Expensive**: Current solutions cost $20+ per user per month
+- Task management with smart prioritization
+- Real-time team communication
+- Progress tracking and reporting
+- One-click deployment and testing
+- Automated onboarding workflows
 
 ## Success Metrics
 
@@ -55,7 +56,6 @@ A project management solution that:
 - Under $10 per user per month`,
     category: "Productivity",
     urgency: "High",
-    bounty: 500,
     submitter: {
       name: "George Sharma",
       username: "George c",
@@ -177,12 +177,6 @@ A project management solution that:
                       </Badge>
                     </div>
                   </div>
-                  {problem.bounty && (
-                    <div className="flex items-center space-x-1 text-green-400 bg-green-500/20 px-4 py-2 rounded-xl">
-                      <DollarSign className="w-5 h-5" />
-                      <span className="font-semibold text-lg">{problem.bounty}</span>
-                    </div>
-                  )}
                 </div>
               </CardHeader>
               <CardContent>
@@ -366,16 +360,6 @@ A project management solution that:
                       <span>{problem.claims}</span>
                     </div>
                   </div>
-
-                  {problem.bounty && (
-                    <div className="flex items-center justify-between">
-                      <span className="text-gray-400">Bounty</span>
-                      <div className="flex items-center space-x-1 text-green-400">
-                        <DollarSign className="w-4 h-4" />
-                        <span>${problem.bounty}</span>
-                      </div>
-                    </div>
-                  )}
                 </div>
               </CardContent>
             </Card>

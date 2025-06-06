@@ -2,12 +2,12 @@
 
 import { useState } from "react"
 import { motion } from "framer-motion"
+import Link from "next/link"
 import { DashboardLayout } from "@/components/dashboard-layout"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Search, Clock, User, DollarSign, MessageCircle } from "lucide-react"
-import Link from "next/link"
+import { Search, Clock, User, MessageCircle } from "lucide-react"
 
 export default function ExplorePage() {
   const [searchQuery, setSearchQuery] = useState("")
@@ -15,28 +15,28 @@ export default function ExplorePage() {
   const [urgencyFilter, setUrgencyFilter] = useState("all")
   const [statusFilter, setStatusFilter] = useState("all")
 
+  // Mock data - in real app this would come from your database
   const problems = [
     {
       id: 1,
-      title: "Better project management for remote teams",
-      description:
-        "Current tools are too complex and don't integrate well with existing workflows. Need something simple but powerful.",
+      title: "Smart home energy optimization",
+      description: "Build an AI-powered system that learns household patterns and optimizes energy consumption automatically.",
       category: "PRODUCTIVITY",
       urgency: "HIGH",
-      submitter: "George Sharma",
+      submitter: "Sarah Johnson",
       createdAt: "2 DAYS AGO",
-      claims: 3,
-      comments: 12,
+      claims: 12,
+      comments: 34,
       status: "UNCLAIMED",
-      techStack: ["REACT", "NODE.JS", "POSTGRESQL"],
+      techStack: ["PYTHON", "REACT", "IOT", "MACHINE LEARNING"],
     },
     {
       id: 2,
-      title: "AI-powered code review assistant",
-      description: "Automate code reviews to catch bugs and suggest improvements before they reach production.",
+      title: "Video call fatigue detector",
+      description: "Create an app that monitors video call behavior and suggests breaks when fatigue is detected.",
       category: "AI",
       urgency: "MEDIUM",
-      submitter: "Marcus Rodriguez",
+      submitter: "Mike Chen",
       createdAt: "1 WEEK AGO",
       claims: 7,
       comments: 24,
@@ -49,7 +49,6 @@ export default function ExplorePage() {
       description: "Current CI/CD setup is too complex for small teams. Need a one-click deployment solution.",
       category: "DEVTOOLS",
       urgency: "LOW",
-      bounty: null,
       submitter: "Alex Kim",
       createdAt: "2 WEEKS AGO",
       claims: 2,
@@ -63,7 +62,6 @@ export default function ExplorePage() {
       description: "Automatically categorize expenses and generate tax reports for freelancers and contractors.",
       category: "FINANCE",
       urgency: "MEDIUM",
-      bounty: null,
       submitter: "Emma Wilson",
       createdAt: "3 DAYS AGO",
       claims: 5,
@@ -186,12 +184,6 @@ export default function ExplorePage() {
                       </Link>
                       <p className="text-sm font-medium mt-2 leading-relaxed">{problem.description}</p>
                     </div>
-                    {problem.bounty && (
-                      <div className="flex items-center space-x-1 border-2 border-current px-3 py-1 font-mono text-sm">
-                        <DollarSign className="w-4 h-4" />
-                        <span className="font-bold">{problem.bounty}</span>
-                      </div>
-                    )}
                   </div>
 
                   {/* Tags */}

@@ -75,7 +75,6 @@ model Problem {
   description String   @db.Text
   category    String
   urgency     String
-  bounty      Float?
   techStack   String[]
   status      String   @default("unclaimed") // unclaimed, claimed, completed
   createdAt   DateTime @default(now())

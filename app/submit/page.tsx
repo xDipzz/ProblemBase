@@ -19,7 +19,6 @@ export default function SubmitProblemPage() {
   const [description, setDescription] = useState("")
   const [category, setCategory] = useState("")
   const [urgency, setUrgency] = useState("")
-  const [bounty, setBounty] = useState("")
   const [techStack, setTechStack] = useState<string[]>([])
   const [newTech, setNewTech] = useState("")
 
@@ -70,7 +69,6 @@ export default function SubmitProblemPage() {
       description,
       category,
       urgency,
-      bounty: bounty ? Number.parseFloat(bounty) : null,
       techStack,
     })
 
@@ -84,7 +82,6 @@ export default function SubmitProblemPage() {
     setDescription("")
     setCategory("")
     setUrgency("")
-    setBounty("")
     setTechStack([])
   }
 
@@ -218,24 +215,6 @@ export default function SubmitProblemPage() {
                   ))}
                 </div>
               )}
-            </div>
-
-            {/* Bounty */}
-            <div className="space-y-3">
-              <Label htmlFor="bounty" className="text-sm font-bold tracking-wide">
-                OPTIONAL BOUNTY ($)
-              </Label>
-              <Input
-                id="bounty"
-                type="number"
-                value={bounty}
-                onChange={(e) => setBounty(e.target.value)}
-                placeholder="0.00"
-                className="bg-white border-2 border-black text-black placeholder-black/50 py-3 text-base font-medium"
-                min="0"
-                step="0.01"
-              />
-              <p className="text-xs font-mono">OFFER A BOUNTY TO INCENTIVIZE BUILDERS (OPTIONAL)</p>
             </div>
 
             {/* Submit Button */}
