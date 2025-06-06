@@ -15,7 +15,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import { User, DollarSign, MessageCircle, Calendar, Flag } from "lucide-react"
+import { User, MessageCircle, Calendar, Flag } from "lucide-react"
 import Link from "next/link"
 import { useToast } from "@/hooks/use-toast"
 
