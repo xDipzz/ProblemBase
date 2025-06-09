@@ -7,6 +7,7 @@ import { DashboardLayout } from "@/components/dashboard-layout"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { ProblemVoting } from "@/components/problem-voting"
 import { Search, Clock, User, MessageCircle } from "lucide-react"
 
 export default function ExplorePage() {
@@ -28,6 +29,7 @@ export default function ExplorePage() {
       claims: 12,
       comments: 34,
       status: "UNCLAIMED",
+      votes: 24,
       techStack: ["PYTHON", "REACT", "IOT", "MACHINE LEARNING"],
     },
     {
@@ -41,6 +43,7 @@ export default function ExplorePage() {
       claims: 7,
       comments: 24,
       status: "CLAIMED",
+      votes: 18,
       techStack: ["PYTHON", "TENSORFLOW", "DOCKER"],
     },
     {
@@ -54,6 +57,7 @@ export default function ExplorePage() {
       claims: 2,
       comments: 8,
       status: "UNCLAIMED",
+      votes: 7,
       techStack: ["DOCKER", "KUBERNETES", "GITHUB ACTIONS"],
     },
     {
@@ -67,6 +71,7 @@ export default function ExplorePage() {
       claims: 5,
       comments: 15,
       status: "UNCLAIMED",
+      votes: 31,
       techStack: ["REACT NATIVE", "FIREBASE", "STRIPE"],
     },
   ]
@@ -183,6 +188,13 @@ export default function ExplorePage() {
                         <h3 className="text-lg font-black tracking-tight hover:underline">{problem.title}</h3>
                       </Link>
                       <p className="text-sm font-medium mt-2 leading-relaxed">{problem.description}</p>
+                    </div>
+                    <div className="flex-shrink-0">
+                      <ProblemVoting 
+                        problemId={problem.id} 
+                        initialVotes={problem.votes}
+                        onVote={(id, voteType) => console.log(`Voted ${voteType} on problem ${id}`)}
+                      />
                     </div>
                   </div>
 
