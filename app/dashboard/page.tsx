@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { DashboardLayout } from "@/components/dashboard-layout"
 import { Button } from "@/components/ui/button"
+import { ActivityFeed } from "@/components/activity-feed"
 import { Plus, ArrowRight } from "lucide-react"
 import Link from "next/link"
 
@@ -120,25 +121,7 @@ export default function DashboardPage() {
           </div>
 
           {/* Recent Activity */}
-          <div className="border-2 border-border p-6">
-            <h2 className="text-lg font-black tracking-tight mb-6">RECENT ACTIVITY</h2>
-            <div className="space-y-4">
-              {recentActivity.map((activity, index) => (
-                <div
-                  key={index}
-                  className="flex items-start space-x-3 p-3 border border-border hover:bg-foreground hover:text-background transition-colors"
-                >
-                  <div className="w-2 h-2 bg-foreground border border-foreground mt-2 flex-shrink-0"></div>
-                  <div className="flex-1">
-                    <p className="font-bold text-sm">
-                      {activity.action} on {activity.item}
-                    </p>
-                    <p className="text-xs font-mono mt-1">{activity.time}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
+          <ActivityFeed />
         </div>
       </motion.div>
     </DashboardLayout>
