@@ -1,123 +1,111 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
-import { Card, CardContent } from "@/components/ui/card"
-import { MessageSquare, ThumbsUp, Plus, Eye, Clock } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { ArrowRight, MessageCircle, Rocket, Plus, User } from "lucide-react"
+import Link from "next/link"
 
 interface ActivityItem {
   id: string
-  type: "vote" | "comment" | "submit" | "view"
-  user: string
-  avatar?: string
   action: string
-  target: string
-  timestamp: string
+  item: string
+  time: string
+  type: "problem" | "comment" | "showcase" | "claim"
 }
 
-const activities: ActivityItem[] = [
-  {
-    id: "1",
-    type: "submit",
-    user: "Alex Chen",
-    action: "submitted a new problem",
-    target: "Smart contract auditing tool",
-    timestamp: "2 minutes ago"
-  },
-  {
-    id: "2", 
-    type: "vote",
-    user: "Sarah Kim",
-    action: "upvoted",
-    target: "Video call fatigue detector",
-    timestamp: "5 minutes ago"
-  },
-  {
-    id: "3",
-    type: "comment",
-    user: "Mike Johnson",
-    action: "commented on",
-    target: "Smart home energy optimization",
-    timestamp: "12 minutes ago"
-  },
-  {
-    id: "4",
-    type: "view",
-    user: "Emma Wilson",
-    action: "started working on",
-    target: "Deployment pipeline simplification",
-    timestamp: "18 minutes ago"
-  },
-  {
-    id: "5",
-    type: "vote",
-    user: "David Lee", 
-    action: "upvoted",
-    target: "Freelancer expense tracking",
-    timestamp: "25 minutes ago"
-  }
+const mockActivity: ActivityItem[] = [
+  { id: "1", action: "PROBLEM CLAIMED", item: "AI-powered code review assistant", time: "2 HOURS AGO", type: "claim" },
+  { id: "2", action: "NEW COMMENT", item: "Better project management for remote teams", time: "5 HOURS AGO", type: "comment" },
+  { id: "3", action: "MVP SHOWCASED", item: "Task automation tool", time: "1 DAY AGO", type: "showcase" },
+  { id: "4", action: "PROBLEM SUBMITTED", item: "Simplified deployment pipeline", time: "3 DAYS AGO", type: "problem" },
+  { id: "5", action: "PROBLEM CLAIMED", item: "Mobile app performance optimization", time: "1 WEEK AGO", type: "claim" },
 ]
 
+function getActivityIcon(type: ActivityItem["type"]) {
+  switch (type) {
+    case "problem":
+      return Plus
+    case "comment":
+      return MessageCircle
+    case "showcase":
+      return Rocket
+    case "claim":
+      return User
+    default:
+      return Plus
+  }
+}
+
+function getActivityColor(type: ActivityItem["type"]) {
+  switch (type) {
+    case "problem":
+      return "text-blue-600"
+    case "comment":
+      return "text-green-600"
+    case "showcase":
+      return "text-purple-600"
+    case "claim":
+      return "text-orange-600"
+    default:
+      return "text-gray-600"
+  }
+}
+
 export function ActivityFeed() {
-  const getIcon = (type: string) => {
-    switch (type) {
-      case "vote": return <ThumbsUp className="w-4 h-4 text-green-600" />
-      case "comment": return <MessageSquare className="w-4 h-4 text-blue-600" />
-      case "submit": return <Plus className="w-4 h-4 text-purple-600" />
-      case "view": return <Eye className="w-4 h-4 text-orange-600" />
-      default: return <Clock className="w-4 h-4 text-gray-600" />
-    }
-  }
-
-  const getInitials = (name: string) => {
-    return name.split(" ").map(n => n[0]).join("").toUpperCase()
-  }
-
   return (
-    <Card className="border-2 border-black">
-      <CardContent className="p-6">
-        <div className="flex items-center gap-2 mb-6">
-          <Clock className="w-5 h-5" />
-          <h3 className="font-black text-lg tracking-tight">RECENT ACTIVITY</h3>
-        </div>
-        
-        <div className="space-y-4">
-          {activities.map((activity, index) => (
+    <div className="border-2 border-border p-6">
+      <div className="flex items-center justify-between mb-6">
+        <h2 className="text-lg font-black tracking-tight">RECENT ACTIVITY</h2>
+        <Button
+          variant="ghost"
+          className="text-sm font-bold tracking-wide hover:bg-foreground hover:text-background px-3 py-2"
+        >
+          VIEW ALL
+          <ArrowRight className="w-3 h-3 ml-1" />
+        </Button>
+      </div>
+      
+      <div className="space-y-4">
+        {mockActivity.map((activity, index) => {
+          const Icon = getActivityIcon(activity.type)
+          const colorClass = getActivityColor(activity.type)
+          
+          return (
             <motion.div
               key={activity.id}
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.3, delay: index * 0.1 }}
-              className="flex items-start gap-3 p-3 rounded border border-gray-200 hover:bg-gray-50 transition-colors"
+              className="flex items-start space-x-3 p-3 border border-border hover:bg-muted/50 transition-colors cursor-pointer"
             >
-              <Avatar className="w-8 h-8 border-2 border-black">
-                <AvatarImage src={activity.avatar} />
-                <AvatarFallback className="bg-white text-black font-bold text-xs">
-                  {getInitials(activity.user)}
-                </AvatarFallback>
-              </Avatar>
-              
+              <div className={`p-2 rounded-full bg-muted ${colorClass}`}>
+                <Icon className="w-4 h-4" />
+              </div>
               <div className="flex-1 min-w-0">
-                <div className="flex items-center gap-2">
-                  {getIcon(activity.type)}
-                  <p className="text-sm">
-                    <span className="font-medium">{activity.user}</span>
-                    <span className="text-gray-600 ml-1">{activity.action}</span>
-                    <span className="font-medium ml-1">"{activity.target}"</span>
-                  </p>
-                </div>
-                <p className="text-xs text-gray-500 mt-1">{activity.timestamp}</p>
+                <p className="text-sm font-bold mb-1">{activity.action}</p>
+                <p className="text-sm text-muted-foreground truncate mb-2">
+                  {activity.item}
+                </p>
+                <p className="text-xs font-mono text-muted-foreground">
+                  {activity.time}
+                </p>
               </div>
             </motion.div>
-          ))}
+          )
+        })}
+      </div>
+      
+      {mockActivity.length === 0 && (
+        <div className="text-center py-8">
+          <p className="text-muted-foreground text-sm">No recent activity</p>
+          <Button asChild className="mt-4">
+            <Link href="/submit">
+              <Plus className="w-4 h-4 mr-2" />
+              Submit Your First Problem
+            </Link>
+          </Button>
         </div>
-        
-        <div className="mt-6 text-center">
-          <button className="text-sm font-medium text-gray-600 hover:text-black transition-colors">
-            View all activity →
-          </button>
-        </div>
-      </CardContent>
-    </Card>
+      )}
+    </div>
   )
 } 
