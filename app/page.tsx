@@ -4,7 +4,6 @@ import { motion } from "framer-motion"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/theme-toggle"
-import { NotificationCenter } from "@/components/notifications"
 import { ArrowRight, Plus, Search, Users } from "lucide-react"
 
 export default function LandingPage() {
@@ -29,7 +28,6 @@ export default function LandingPage() {
             >
               SHOWCASE
             </Link>
-            <NotificationCenter />
             <ThemeToggle />
             <Link href="/login">
               <Button variant="outline" className="text-sm">

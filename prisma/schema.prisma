@@ -115,4 +115,44 @@ model Comment {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  userI
+  userId    String
+  problemId String
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  problem   Problem @relation(fields: [problemId], references: [id], onDelete: Cascade)
+
+  @@index([problemId])
+  @@index([createdAt])
+}
+
+model Showcase {
+  id          String   @id @default(cuid())
+  title       String
+  description String   @db.Text
+  demoUrl     String?
+  repoUrl     String?
+  imageUrl    String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  userId    String
+  problemId String
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  problem   Problem @relation(fields: [problemId], references: [id], onDelete: Cascade)
+
+  @@index([problemId])
+  @@index([createdAt])
+}
+
+model Vote {
+  id        String   @id @default(cuid())
+  type      String   // upvote, downvote
+  createdAt DateTime @default(now())
+
+  userId    String
+  problemId String
+  user      User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  problem   Problem @relation(fields: [problemId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, problemId])
+  @@index([problemId])
+}
