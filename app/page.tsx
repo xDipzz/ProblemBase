@@ -222,7 +222,7 @@ export default function LandingPage() {
             </div>
           </div>
           <div className="mt-12 pt-6 border-t border-border text-center">
-            <p className="text-sm font-medium">&copy; 2024 PROBLEMBASE. ALL RIGHTS RESERVED.</p>
+            <p className="text-sm font-medium">&copy; 2025 PROBLEMBASE. ALL RIGHTS RESERVED.</p>
           </div>
         </div>
       </footer>
