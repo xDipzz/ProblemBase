@@ -208,13 +208,13 @@ export default function LandingPage() {
                 GITHUB
               </a>
               <a
-                href="#"
+                href="https://github.com/xDipzz/ProblemBase"
                 className="text-sm font-medium hover:bg-foreground hover:text-background px-3 py-2 transition-colors"
               >
                 TWITTER
               </a>
               <a
-                href="#"
+                href="https://github.com/xDipzz/ProblemBase"
                 className="text-sm font-medium hover:bg-foreground hover:text-background px-3 py-2 transition-colors"
               >
                 DISCORD
